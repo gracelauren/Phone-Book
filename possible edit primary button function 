@@ -1,0 +1,22 @@
+app.rb:
+
+post('/edit') do
+  @original = params.fetch("original")
+  @replacement = params.fetch("replacement")
+  Contact.edit_primary(@original, @replacement)
+  redirect '/'
+end
+
+index.erb:
+<br>
+<h5>If you wish to <span class="text-danger">edit</span> the primary number, enter the original phone number and the one you want to replace it with below. <span class="text-danger">The phone numbers must be entered in the following format: (xxx)xxx-xxxx</span></h5>
+
+<form action ="/edit" method="post">
+  <label for="original">Original Phone Number</label>
+  <input id="original" name="original" type="text" class="form-control input-sm" placeholder="(xxx)xxx-xxxx">
+
+  <label for="replacement">Replacement Phone Number</label>
+  <input id="replacement" name="replacement" type="text" class="form-control input-sm" placeholder="(xxx)xxx-xxxx">
+
+  <button type="submit">Edit Primary Number</button>
+</form>

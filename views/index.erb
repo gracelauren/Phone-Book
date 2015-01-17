@@ -1,0 +1,60 @@
+<br>
+<br>
+<br>
+<div class="panel panel-default">
+  <div class="panel-heading input-lg">Phone Book</div>
+  <div class="panel-body">
+    <p>Below lists all the contacts in the telephone directory.</p>
+    <p>Press the 'Delete' button if you wish to delete a contact in your telephone directory.</p>
+  </div>
+<% counter = 0 %>
+<% if @all_contacts != nil %>
+  <table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Primary Phone Number</th>
+            <th>More Numbers<th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @all_contacts.each() do |contact| %>
+        <tr>
+            <td><%=contact.name() %></td>
+            <td><%=contact.phone_number_primary() %></td>
+            <td class ="id"><a href="/contact_numbers/<%= contact.id() %>">More Numbers</td>
+            <form action='/delete' method=post>
+            <td>
+              <input type = 'submit' name='button_id' value='Delete'>
+              <%= "<input type='hidden' value=#{counter} name='hidden_num'>" %>
+            </td>
+            </form>
+        </tr>
+        <% end %>
+      <% end %>
+  </table>
+</div>
+
+<div class="span7 text-center">
+  <form action ="/clear" method="post">
+    <button type="submit"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> Clear Directory</button>
+  </form>
+</div>
+<br>
+<br>
+<div class="directory_form">
+  <h4>Write the name and primary phone number of the contact you wish to put in your telephone directory below. <span class="text-danger">Enter the phone number in the following format: (xxx)xxx-xxxx</span></h4>
+
+  <form action ="/directory" method="post">
+    <label for="name">Name:</label>
+    <input id="name" name="name" type="text" class="form-control" placeholder="Name">
+
+    <label for="phone_number_primary">Primary Phone Number:</label>
+    <input id="phone_number_primary" name="phone_number_primary" type="text" class="form-control" placeholder="(xxx)xxx-xxxx">
+    <br>
+    <button type="submit"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> Add Contact!</button>
+  </form>
+</div>
+<br>
+<br>
