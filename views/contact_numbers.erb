@@ -1,7 +1,7 @@
-<h1 class="text-center">Add another phone number for <%= @contact.name() %> </h1>
+<h1 class="text-center hc">Add another phone number for <%= @contact.name() %> </h1>
 <br>
 <br>
-<h5>Write the phone number you wish to add to <%= @contact.name() %> below. <span class="text-danger">Enter the phone number in the example format following: Home: (xxx)xxx-xxxx</span></h5>
+<h5 class ="hc">Write the phone number you wish to add to <%= @contact.name() %> below. <span class="text-danger">Enter the phone number in the example format following: Home: (xxx)xxx-xxxx</span></h5>
 
 <form action="/numbers" method="post">
   <input id='contact_id' name='contact_id' type='hidden' value='<%= @contact.id() %>'>
@@ -12,7 +12,7 @@
   <button type="submit"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>Add Number</button>
 </form>
 
-<h3 class="text-center">Here are all the numbers in this contact:</h3>
+<h3 class ="hc">Here are all the numbers in this contact:</h3>
 
 <ul>
     <li>Primary Phone Number: <%= @contact.phone_number_primary() %></li>
@@ -21,4 +21,4 @@
   <% end %>
 </ul>
 
-<<a href="/">Return to Main Page</a>
+<span class="glyphicon glyphicon-phone-alt" aria-hidden="true"><a href="/">Return to Your Phone Book</a><span class="glyphicon glyphicon-phone-alt" aria-hidden="true">

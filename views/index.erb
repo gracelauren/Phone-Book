@@ -21,8 +21,8 @@
     <tbody>
         <% @all_contacts.each() do |contact| %>
         <tr>
-            <td><%=contact.name() %></td>
-            <td><%=contact.phone_number_primary() %></td>
+            <td><%=contact.name() %> <% counter %></td>
+            <td><%=contact.phone_number_primary() %><% counter %></td>
             <td class ="id"><a href="/contact_numbers/<%= contact.id() %>">More Numbers</td>
             <form action='/delete' method=post>
             <td>
@@ -31,6 +31,7 @@
             </td>
             </form>
         </tr>
+        <% counter = counter.+1 %>
         <% end %>
       <% end %>
   </table>
@@ -44,13 +45,13 @@
 <br>
 <br>
 <div class="directory_form">
-  <h4>Write the name and primary phone number of the contact you wish to put in your telephone directory below. <span class="text-danger">Enter the phone number in the following format: (xxx)xxx-xxxx</span></h4>
+  <h4 class ="hc">Write the name and primary phone number of the contact you wish to put in your telephone directory below. <span class="text-danger">Enter the phone number in the following format: (xxx)xxx-xxxx</span></h4>
 
   <form action ="/directory" method="post">
-    <label for="name">Name:</label>
+    <label for="name" class ="hc">Name:</label>
     <input id="name" name="name" type="text" class="form-control" placeholder="Name">
 
-    <label for="phone_number_primary">Primary Phone Number:</label>
+    <label for="phone_number_primary" class ="hc">Primary Phone Number:</label>
     <input id="phone_number_primary" name="phone_number_primary" type="text" class="form-control" placeholder="(xxx)xxx-xxxx">
     <br>
     <button type="submit"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span> Add Contact!</button>

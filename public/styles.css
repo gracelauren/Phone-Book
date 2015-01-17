@@ -18,7 +18,22 @@ th{
   text-align: center;
 }
 
-h1{
-  text-align: center;
-  color: blue;
+body{
+  background-color: #280052;
+}
+
+h4.hc {
+  color: white;
+}
+
+h1.hc {
+  color: white;
+}
+
+h5.hc {
+  color: white;
+}
+
+.hc {
+  color: white;
 }
