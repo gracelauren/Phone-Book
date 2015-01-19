@@ -1,14 +1,18 @@
 <h1 class="text-center hc">Add another phone number for <%= @contact.name() %> </h1>
 <br>
 <br>
-<h5 class ="hc">Write the phone number you wish to add to <%= @contact.name() %> below. <span class="text-danger">Enter the phone number in the example format following: Home: (xxx)xxx-xxxx</span></h5>
+<h5 class ="hc">Write the phone number you wish to add to <%= @contact.name() %> below. <span class="text-danger">Enter the phone number in the example format following: (xxx)xxx-xxxx</span></h5>
 
 <form action="/numbers" method="post">
   <input id='contact_id' name='contact_id' type='hidden' value='<%= @contact.id() %>'>
+  <div class="hc">
+  <label for='type'>Type:</label>
+  </div>
+  <input id='type' name='type' type="text" class="form-control" placeholder="Cell/Home/Work/Travel">
   <div class = "hc">
   <label for='new_number'>Number:</label>
   </div>
-  <input id='new_number' name='new_number' type="text" class="form-control" placeholder="Type: (xxx)xxx-xxxx">
+  <input id='new_number' name='new_number' type="text" class="form-control" placeholder="(xxx)xxx-xxxx">
   <br>
   <button type="submit"><span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>Add Number</button>
 </form>
@@ -18,7 +22,7 @@
 <ul class = "hc">
     <li>Primary Phone Number: <%= @contact.phone_number_primary() %></li>
   <% @contact.numbers().each() do |number| %>
-    <li><%= number.new_number() %></li>
+    <li><%= number.type() %>: <%= number.new_number() %></li>
   <% end %>
 </ul>
 
