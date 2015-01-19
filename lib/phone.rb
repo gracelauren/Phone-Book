@@ -1,8 +1,9 @@
 class Phone
   @@all_numbers = []
-  attr_reader(:new_number)
+  attr_reader(:type, :new_number)
 
-  define_method(:initialize) do |new_number|
+  define_method(:initialize) do |type, new_number|
+    @type = type
     @new_number = new_number
   end
 
