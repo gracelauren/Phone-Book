@@ -29,8 +29,9 @@ post('/delete') do
 end
 
 post('/numbers') do
+  type = params.fetch('type')
   new_number = params.fetch('new_number')
-  @number = Phone.new(new_number)
+  @number = Phone.new(type, new_number)
   @number.save()
   @contact = Contact.find(params.fetch('contact_id').to_i())
   @contact.add_number(@number)
